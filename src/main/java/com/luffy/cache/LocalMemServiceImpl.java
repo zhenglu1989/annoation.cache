@@ -1,9 +1,5 @@
 package com.luffy.cache;
 
-import com.alibaba.fastjson.JSON;
-import com.alibaba.fastjson.JSONObject;
-import com.google.common.collect.Lists;
-
 import com.luffy.util.HashUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
