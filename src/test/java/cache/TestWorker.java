@@ -26,7 +26,6 @@ public abstract  class TestWorker {
 
     private static final Logger logger = Logger.getLogger(TestWorker.class);
 
-
     /**
      * 子类需要实现的执行方法
      */
