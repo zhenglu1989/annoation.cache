@@ -40,11 +40,11 @@
  
  
  public class User{
-   private int id;
+    private int id;
    
-   @CacheKeyMethod
-   public String getId(){
-    return String.valueof(id);
+    @CacheKeyMethod
+    public String getId(){
+       return String.valueof(id);
    }
  
  }
