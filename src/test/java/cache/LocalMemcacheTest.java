@@ -1,5 +1,7 @@
 package cache;
 
+import com.luffy.cache.CacheService;
+import com.luffy.cache.LocalMemServiceImpl;
 import junit.framework.TestCase;
 import org.junit.Test;
 
@@ -27,10 +29,18 @@ public class LocalMemcacheTest extends TestCase {
 
    }
     @Test
-    public void testGetLocalCache(){
-        String str = "key_test";
-        localCacheService.set(str,"hello",3);
-        System.out.println(localCacheService.get(str));
-    }
+    public void testSetLocalCache(){
+        new TestWorker(){
+            int i = 1;
+            @Override
+            public void exe() {
 
+                String str = "key_test"+String.valueOf(i);
+                localCacheService.set(str,String.valueOf(i),3);
+                System.out.println(localCacheService.get(str));
+                i++;
+            }
+
+        }.printTakeTime(100);
+    }
 }

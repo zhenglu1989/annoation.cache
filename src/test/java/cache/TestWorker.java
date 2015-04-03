@@ -2,6 +2,7 @@ package cache;
 
 
 
+import java.util.concurrent.Callable;
 import java.util.concurrent.CompletionService;
 import java.util.concurrent.ExecutorCompletionService;
 import java.util.concurrent.Executors;
@@ -60,12 +61,31 @@ public abstract  class TestWorker {
         long start = System.currentTimeMillis();
         final AtomicInteger realTime = new AtomicInteger();
         for(int i = 0 ; i<times;i++){
-//            if()
-        }
+            if(Thread.currentThread().isInterrupted()){
+                logger.info(".....妹的，interrupt 啦.......");
+            }
+           completionService.submit(new Callable<Object>() {
+               @Override
+               public Object call() throws Exception {
 
+                   realTime.incrementAndGet();
+                   exe();
+                   return new Object();
+               }
+           });
+        }
+       for(int j=0;j<times;j++){
+           try {
+               completionService.take().get();
+           } catch (Exception e) {
+               e.printStackTrace();
+           }
+       }
+
+      long tk = System.currentTimeMillis() - start;
+       System.out.println("take ms :: "+ tk);
+       System.out.println("per time take ms :: "+ (tk/realTime.get()*1.0));
 
     }
-
-
 
 }
