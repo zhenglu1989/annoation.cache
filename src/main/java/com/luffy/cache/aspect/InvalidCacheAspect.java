@@ -21,7 +21,6 @@ public class InvalidCacheAspect extends BaseAspect{
     @Around("@annotation(com.souche.annotation.InvalidCache)")
     public Object invalidCache(final ProceedingJoinPoint pjpParam) throws Throwable{
 
-
         String cacheKey = "";
         Object result = null;
         try{
@@ -37,7 +36,6 @@ public class InvalidCacheAspect extends BaseAspect{
 
         }
         return result;
-
 
     }
     @AfterThrowing(pointcut = "@annotation(com.souche.annotation.InvalidCache)",throwing="ex")

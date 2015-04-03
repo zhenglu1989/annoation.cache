@@ -121,7 +121,6 @@ public class MemcachedServiceImpl implements CacheService, InitializingBean,Disp
 		logger.info("Memcached Client shutdown...");
 	}
 
-
 	@Override
 	public void afterPropertiesSet() throws Exception {
 		if (!inited) {

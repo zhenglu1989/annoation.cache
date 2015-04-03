@@ -77,7 +77,6 @@ public class BaseAspect {
             }
         }
         return keyprefix;
-
     }
 
     protected Logger getLogger() {
