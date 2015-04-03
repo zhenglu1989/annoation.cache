@@ -14,7 +14,7 @@
 		<property name="keyPrefix" value="key_" />
 	</bean>
 ```
-	####注册需要使用的切面 
+####注册需要使用的切面 
 ```java	
 	  <bean id="cacheAspect" class="com.luffy.aspect.CacheAspect"/>
     <bean id="invalidCacheAspect" class="com.luffy.aspect.InvalidCacheAspect"/>
@@ -29,7 +29,7 @@
  ```
  
  
- ####失效：：
+####失效：：
 ``` 
  @InvalidCacheAspect(prefix = "website_user_info_")
  public int save(@KeyParameter User user){
